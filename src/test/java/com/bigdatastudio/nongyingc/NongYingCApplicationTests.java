@@ -21,6 +21,8 @@ class NongYingCApplicationTests {
         //System.out.println(user);
         userMapper.insert(user);
 
+        //
+
     }
 
 }
