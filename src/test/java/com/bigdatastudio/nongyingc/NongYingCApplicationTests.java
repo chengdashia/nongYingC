@@ -20,9 +20,6 @@ class NongYingCApplicationTests {
                 .build();
         //System.out.println(user);
         userMapper.insert(user);
-
-        //
-
     }
 
 }

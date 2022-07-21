@@ -1,6 +1,7 @@
 package com.bigdatastudio.nongyingc.config.mybatis;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
@@ -71,9 +72,11 @@ public class MybatisPlusGeneration {
                             //pojo 的配置
                             .entityBuilder()
                             .enableLombok()//实体类使用lombok,需要自己引入依赖
+
                             //.disableSerialVersionUID()  //不实现 Serializable 接口，不生产 SerialVersionUID
                             //.logicDeleteColumnName("status")//逻辑删除字段，使用delete方法删除数据时会将status设置为1。调用update方法时并不会将该字段放入修改字段中，而是在条件字段中
                             .enableTableFieldAnnotation()// 开启生成实体时生成字段注解@TableField
+                            .idType(IdType.ASSIGN_ID)  //设置主键的生成策略 全局主键类型
                             // 数据库表字段映射到实体的命名策略
                             .columnNaming(NamingStrategy.underline_to_camel)                //数据库表字段映射到实体的命名策略：下划线转驼峰命
                             .naming(NamingStrategy.underline_to_camel)                      //数据库表映射到实体的命名策略：下划线转驼峰命
