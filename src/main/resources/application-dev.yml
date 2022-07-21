@@ -76,12 +76,13 @@ mybatis-plus:
     #org.apache.ibatis.logging.log4j2.Log4j2Impl:这个不在控制台打印查询结果,但是在log4j中打印
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true                          #下划线转驼峰
-  mapper-locations: classpath:**/mapper/xml/*.xml
+  mapper-locations: classpath:/**/xml/*.xml
   type-aliases-package: com.bigdatastudio.springbootjasypt.pojo
   global-config:
     db-config:
       logic-delete-value: 0
       logic-not-delete-value: 1
+  type-handlers-package: com.bigdatastudio.config.mybatis.encrypt
 
 # Sa-Token配置
 sa-token:

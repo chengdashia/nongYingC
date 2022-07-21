@@ -3,6 +3,7 @@ package com.bigdatastudio.nongyingc.domain;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.bigdatastudio.nongyingc.config.mybatis.encrypt.AesEncryptHandler;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
@@ -20,7 +21,8 @@ import java.io.Serializable;
  */
 @Data
 @Builder
-@TableName("user")
+// @TableName 注解的 autoResultMap 一定要为true 否则查询得到的结果会为null
+@TableName(value = "user",autoResultMap = true)
 @ApiModel(value = "User对象", description = "")
 public class User implements Serializable {
 
@@ -31,7 +33,7 @@ public class User implements Serializable {
     private String id;
 
     @ApiModelProperty("用户密码")
-    @TableField("user_pwd")
+    @TableField(value = "user_pwd",typeHandler = AesEncryptHandler.class)
     private String userPwd;
 
     @ApiModelProperty("用户账号")
