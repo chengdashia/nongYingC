@@ -1,6 +1,7 @@
 package com.bigdatastudio.nongyingc;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.bigdatastudio.nongyingc.config.mybatis.typehandler.Encrypt;
 import com.bigdatastudio.nongyingc.domain.User;
 import com.bigdatastudio.nongyingc.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +32,13 @@ class NongYingCApplicationTests {
         //    userMapper.insert(user);
         //    System.out.println("************************************************");
         //}
-        System.out.println(userMapper.selectList(new LambdaQueryWrapper<User>().eq(User::getUserPwd, "13")));
+        System.out.println(userMapper.selectList(new LambdaQueryWrapper<User>().eq(User::getUserPwd, new Encrypt("222"))));
+        //
+        //    User user = User.builder()
+        //            .userName("111")
+        //            .userPwd("222")
+        //            .build();
+        //    userMapper.insert(user);
     }
 
 }
