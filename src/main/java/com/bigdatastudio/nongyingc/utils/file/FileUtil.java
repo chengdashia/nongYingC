@@ -1,10 +1,11 @@
 package com.bigdatastudio.nongyingc.utils.file;
 
 
-import com.bigdatastudio.nongyingc.utils.constant.Constants;
+import com.bigdatastudio.nongyingc.utils.constant.enump.FILE;
 import com.bigdatastudio.nongyingc.utils.result.ResultMap;
 import com.bigdatastudio.nongyingc.utils.thumbnailator.ThumbnailUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -29,13 +30,16 @@ public class FileUtil {
     public static ResultMap saveFile(MultipartFile file , String uId) throws IOException {
         //如果文件为空 返回
         if (file.isEmpty()) {
-            return ResultMap.result(Constants.FILE.FILE_IS_NULL.getValue(),Constants.FILE.FILE_IS_NULL.getMsg());
+            return ResultMap.result(FILE.FILE_IS_NULL.getValue(),FILE.FILE_IS_NULL.getMsg());
         }
         //获取文件的字节流
         byte[] bytes = file.getBytes();
         //获取文件的后缀名
         String fileOriginalFilename = file.getOriginalFilename();
-        String substring = fileOriginalFilename.substring(fileOriginalFilename.lastIndexOf("."));
+        String substring = "";
+        if (!StringUtils.isEmpty(fileOriginalFilename)){
+            substring = fileOriginalFilename.substring(fileOriginalFilename.lastIndexOf("."));
+        }
         log.info("fileUtil 中的  后缀是:  {}",substring);
         log.info("fileUtil 中的  getContentType是:  {}",file.getContentType());
         String suffix = FileTypeJudgeUtil.FILE_TYPE_MAP.get(file.getContentType());
@@ -48,13 +52,13 @@ public class FileUtil {
                 log.info("filePath:   {}",filePath);
                 File uploadFile = new File(filePath);
                 file.transferTo(uploadFile);
-                return ResultMap.result().put(Constants.FILE.SUCCESS.getMsg(),filePath);
+                return ResultMap.result().put(FILE.SUCCESS.getMsg(),filePath);
             }
             //如果后缀名被改过
-            return ResultMap.result(Constants.FILE.SUFFIX_CHANGED.getValue(), Constants.FILE.SUFFIX_CHANGED.getMsg());
+            return ResultMap.result(FILE.SUFFIX_CHANGED.getValue(), FILE.SUFFIX_CHANGED.getMsg());
         }
         //暂时不支持此种格式上传
-        return ResultMap.result(Constants.FILE.FILE_TYPE_NOT_SUPPORTED.getValue(), Constants.FILE.FILE_TYPE_NOT_SUPPORTED.getMsg());
+        return ResultMap.result(FILE.FILE_TYPE_NOT_SUPPORTED.getValue(), FILE.FILE_TYPE_NOT_SUPPORTED.getMsg());
 
 
     }
@@ -85,13 +89,13 @@ public class FileUtil {
                 File uploadFile = new File(filePath);
                 //保存到本地
                 file.transferTo(uploadFile);
-                return ResultMap.result(Constants.FILE.SUCCESS.getValue(), Constants.FILE.SUCCESS.getMsg());
+                return ResultMap.result(FILE.SUCCESS.getValue(), FILE.SUCCESS.getMsg());
             }
             //如果后缀名被改过
-            return ResultMap.result(Constants.FILE.SUFFIX_CHANGED.getValue(), Constants.FILE.SUFFIX_CHANGED.getMsg());
+            return ResultMap.result(FILE.SUFFIX_CHANGED.getValue(), FILE.SUFFIX_CHANGED.getMsg());
 
         }
-        return ResultMap.result(Constants.FILE.FILE_IS_NULL.getValue(),Constants.FILE.FILE_IS_NULL.getMsg());
+        return ResultMap.result(FILE.FILE_IS_NULL.getValue(),FILE.FILE_IS_NULL.getMsg());
     }
 
     /**
@@ -114,7 +118,7 @@ public class FileUtil {
      */
     public static String createFolder(){
         //指定文件夹。如果不存在就创建
-        String folderPath = Constants.FILE.LOCAL_PATH.getMsg();
+        String folderPath = FILE.LOCAL_PATH.getMsg();
         File temp = new File(folderPath);
         if (!temp.exists()){
             boolean mkdir = temp.mkdir();

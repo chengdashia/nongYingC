@@ -46,7 +46,7 @@ public class MyBatisPlusConfig {
 
     /**使用mybatis-plus  selectMaps 可以下划线转驼峰。*/
     @Bean
-    public ConfigurationCustomizer mybatisConfigurationCustomizer(){
+    public ConfigurationCustomizer mybatisConfigurationCustomizer() {
         return new ConfigurationCustomizer() {
             @Override
             public void customize(MybatisConfiguration configuration) {
@@ -54,9 +54,6 @@ public class MyBatisPlusConfig {
             }
         };
     }
-
-
-
 
 
 
