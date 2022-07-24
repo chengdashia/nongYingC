@@ -2,10 +2,7 @@ package com.bigdatastudio.nongyingc.common.aspect;
 
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.alibaba.fastjson.JSON;
-import com.example.springbootaop.service.LogErrorInfoService;
-import com.example.springbootaop.service.LogInfoService;
-import com.example.springbootaop.utils.IPUtil;
+import com.alibaba.fastjson.JSON;import com.bigdatastudio.nongyingc.utils.IPUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
@@ -14,7 +11,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,23 +38,23 @@ public class SysLogAspect {
      */
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
-    @Autowired
-    private LogInfoService logInfoService;
-
-    @Autowired
-    private LogErrorInfoService logErrorInfoService;
+    //@Autowired
+    //private LogInfoService logInfoService;
+    //
+    //@Autowired
+    //private LogErrorInfoService logErrorInfoService;
 
     /**
      * 设置操作日志切入点 记录操作日志 在注解的位置切入代码
      */
-    @Pointcut("@annotation(com.example.springbootaop.config.aspect.SysLog)")
+    @Pointcut("@annotation(com.bigdatastudio.nongyingc.common.aspect.SysLog)")
     public void logPointCut() {
     }
 
     /**
      * 设置操作异常切入点记录异常日志 扫描所有controller包下操作
      */
-    @Pointcut("execution(* com.example.springbootaop.controller.log..*.*(..))")
+    @Pointcut("execution(* com.bigdatastudio.nongyingc.controller..*.*(..))")
     public void exceptionLogPointCut() {
     }
 
