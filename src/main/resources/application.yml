@@ -23,3 +23,6 @@ knife4j:
     # Basic认证密码
     password: 123
   cors: true
+
+logging:
+  config: classpath:log4j2.yml
