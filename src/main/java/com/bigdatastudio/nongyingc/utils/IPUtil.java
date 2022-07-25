@@ -8,13 +8,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class IPUtil {
     /**
-     * @methodName：getIpAddress
-     * @description：获取IP地址
-     * @author：tanyp
-     * @dateTime：2021/12/02 14:20
-     * @Params： [request]
-     * @Return： java.lang.String
-     * @editNote：
+     * 获取IP地址
      */
     public static String getIpAddress(HttpServletRequest request) {
 

@@ -1,8 +1,6 @@
 package com.bigdatastudio.nongyingc.config.safe;
 
 import cn.dev33.satoken.interceptor.SaRouteInterceptor;
-import cn.dev33.satoken.router.SaRouter;
-import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -41,23 +39,23 @@ public class WebConfig implements WebMvcConfigurer {
         // 注册路由拦截器，自定义认证规则
         registry.addInterceptor(new SaRouteInterceptor((req, res, handler) -> {
 
-            // 登录认证 -- 拦截所有路由，并排除/user/doLogin 用于开放登
-            SaRouter.match("/**")
-                    .notMatch("/userInfo/loginByPassword")
-                    .notMatch("/userInfo/registerByTel")
-                    .notMatch("/userInfo/registerByMail")
-                    .notMatch("/userInfo/loginByVerificationCode")
-                    .notMatch("/userInfo/loginByMail")
-                    .notMatch("/captcha/sendSmsCaptcha")
-                    .notMatch("/fileInfo/getFIieRandomTen")
-                    .notMatch("/fileInfo/getFIieTopTen")
-                    .notMatch("/fileInfo/getFileInfoListByPage")
-
-                    .notMatch("/fileUpload/*")
-
-                    .notMatch("/captcha/*")
-                    .notMatch("/mail/*")
-                    .check(r-> StpUtil.checkLogin());
+            //// 登录认证 -- 拦截所有路由，并排除/user/doLogin 用于开放登
+            //SaRouter.match("/**")
+            //        .notMatch("/userInfo/loginByPassword")
+            //        .notMatch("/userInfo/registerByTel")
+            //        .notMatch("/userInfo/registerByMail")
+            //        .notMatch("/userInfo/loginByVerificationCode")
+            //        .notMatch("/userInfo/loginByMail")
+            //        .notMatch("/captcha/sendSmsCaptcha")
+            //        .notMatch("/fileInfo/getFIieRandomTen")
+            //        .notMatch("/fileInfo/getFIieTopTen")
+            //        .notMatch("/fileInfo/getFileInfoListByPage")
+            //
+            //        .notMatch("/fileUpload/*")
+            //
+            //        .notMatch("/captcha/*")
+            //        .notMatch("/mail/*")
+            //        .check(r-> StpUtil.checkLogin());
 
 
 //            // 角色认证 -- 拦截以 admin 开头的路由，必须具备 admin 角色或者 super-admin 角色才可以通过认证

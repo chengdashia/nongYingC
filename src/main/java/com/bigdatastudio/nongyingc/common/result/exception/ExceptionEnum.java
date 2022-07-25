@@ -23,8 +23,14 @@ public enum ExceptionEnum{
     REQUEST_PARAMETER_EXCEPTION("5003", "请求参数不合规!"),
     /**登录过期。或token无效！**/
     NOT_LOGIN("5004", "登录过期。或token无效！"),
+    /** 角色异常 **/
+    NOT_ROLE("5005", "角色异常！"),
+    /**权限不够**/
+    NOT_PERMISSION("5006", "权限不够！"),
+    /**权限不够**/
+    DIS_LOGIN("5007", "账号被封禁了！"),
     /**服务器正忙，请稍后再试!**/
-    SERVER_BUSY("5003","服务器正忙，请稍后再试!");
+    SERVER_BUSY("5008","服务器正忙，请稍后再试!");
 
 
 
