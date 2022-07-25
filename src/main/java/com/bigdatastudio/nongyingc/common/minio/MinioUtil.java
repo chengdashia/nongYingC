@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.bigdatastudio.nongyingc.common.result.project.ConstantEnum.SEPARATOR;
+import static com.bigdatastudio.nongyingc.utils.constant.Constants.SEPARATOR;
 
 
 /**
@@ -70,7 +70,7 @@ public class MinioUtil {
                 log.info("创建完毕 MinioClient...");
             }
         } catch (Exception e) {
-            log.error("MinIO服务器异常：{}", e);
+            log.error("MinIO服务器异常："+ e);
         }
     }
 
@@ -80,14 +80,14 @@ public class MinioUtil {
      * @return  "http://10.111.43.55:9000/file/"
      */
     public String getBasisUrl() {
-        return endpoint + SEPARATOR.getMsg() + bucketName + SEPARATOR.getMsg();
+        return endpoint + SEPARATOR + bucketName + SEPARATOR;
     }
 
     /**
      * 获取用户的路径
      */
     public String getUserUploadUrl(String uId,String objectName) {
-        return uId + SEPARATOR.getMsg() + objectName;
+        return uId + SEPARATOR + objectName;
     }
 
     /**
@@ -98,7 +98,7 @@ public class MinioUtil {
      */
     public boolean createRootUrl(String uId,String bucketName){
         log.info("bucketName:  "+bucketName);
-        String folder = uId + SEPARATOR.getMsg();
+        String folder = uId + SEPARATOR;
         try {
             createFolder(bucketName, folder);
             return true;
@@ -191,7 +191,6 @@ public class MinioUtil {
             minioClient.statObject(
                     StatObjectArgs.builder().bucket(bucketName).object(objectName).build());
             exist = true;
-            log.info("isExists:     {} ", exist);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -348,8 +347,8 @@ public class MinioUtil {
      * @param folderPath 目录路径
      */
     public  ObjectWriteResponse createFolder(String bucketName, String folderPath) throws Exception {
-        if(!SEPARATOR.getMsg().equals(folderPath.substring(folderPath.length()-2))){
-            folderPath += SEPARATOR.getMsg();
+        if(!SEPARATOR.equals(folderPath.substring(folderPath.length()-2))){
+            folderPath += SEPARATOR;
         }
         return minioClient.putObject(
                 PutObjectArgs.builder()
@@ -383,7 +382,7 @@ public class MinioUtil {
      * @return minio 的文件夹的路径
       */
     public String getFolderPath(String uId){
-        return uId + SEPARATOR.getMsg();
+        return uId + SEPARATOR;
     }
 
     /**
@@ -454,7 +453,7 @@ public class MinioUtil {
             try {
                 removeFile(bucketName, s);
             } catch (Exception e) {
-                log.error("批量删除失败！error:{}",e);
+                log.error("批量删除失败！error: "+e);
             }
         });
     }
@@ -494,7 +493,7 @@ public class MinioUtil {
      * @return url         文件的下载链接
      */
     public  String getFileUrl(String uId ,String objectName) {
-        return getBasisUrl() + uId + SEPARATOR.getMsg() + objectName;
+        return getBasisUrl() + uId + SEPARATOR + objectName;
     }
 
     /**
