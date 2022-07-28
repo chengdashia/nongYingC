@@ -1,7 +1,7 @@
 package com.bigdatastudio.nongyingc.utils.file;
 
 
-import com.bigdatastudio.nongyingc.utils.constant.enums.FILE;
+import com.bigdatastudio.nongyingc.constant.enums.FILE;
 import com.bigdatastudio.nongyingc.utils.result.ResultMap;
 import com.bigdatastudio.nongyingc.utils.thumbnailator.ThumbnailUtil;
 import lombok.extern.slf4j.Slf4j;

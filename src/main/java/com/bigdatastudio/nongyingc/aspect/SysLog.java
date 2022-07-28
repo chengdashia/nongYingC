@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.common.aspect;
+package com.bigdatastudio.nongyingc.aspect;
 
 import java.lang.annotation.*;
 

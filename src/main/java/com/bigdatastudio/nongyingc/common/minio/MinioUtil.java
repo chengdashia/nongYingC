@@ -1,6 +1,6 @@
 package com.bigdatastudio.nongyingc.common.minio;
 
-import com.bigdatastudio.nongyingc.common.result.exception.BaseException;
+import com.bigdatastudio.nongyingc.exception.BaseException;
 import io.minio.*;
 import io.minio.http.Method;
 import io.minio.messages.Bucket;
@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.bigdatastudio.nongyingc.utils.constant.Constants.SEPARATOR;
+import static com.bigdatastudio.nongyingc.constant.Constants.SEPARATOR;
 
 
 /**

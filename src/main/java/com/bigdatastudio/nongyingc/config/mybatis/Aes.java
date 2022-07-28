@@ -1,6 +1,6 @@
 package com.bigdatastudio.nongyingc.config.mybatis;
-import com.bigdatastudio.nongyingc.common.result.exception.BaseException;
-import com.bigdatastudio.nongyingc.common.result.exception.ExceptionEnum;
+import com.bigdatastudio.nongyingc.exception.BaseException;
+import com.bigdatastudio.nongyingc.exception.ExceptionEnum;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;

@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.utils.constant;
+package com.bigdatastudio.nongyingc.constant;
 
 /**
  * @author 成大事

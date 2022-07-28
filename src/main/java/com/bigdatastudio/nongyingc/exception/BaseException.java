@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.common.result.exception;
+package com.bigdatastudio.nongyingc.exception;
 
 /**
  * @author 成大事

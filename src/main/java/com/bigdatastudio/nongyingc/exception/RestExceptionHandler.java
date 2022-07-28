@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.common.result.exception;
+package com.bigdatastudio.nongyingc.exception;
 
 import cn.dev33.satoken.exception.DisableLoginException;
 import cn.dev33.satoken.exception.NotLoginException;
