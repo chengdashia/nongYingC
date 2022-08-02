@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.config.mybatis;
+package com.bigdatastudio.nongyingc.config.mybatis.encrypt;
 import com.bigdatastudio.nongyingc.exception.BaseException;
 import com.bigdatastudio.nongyingc.exception.ExceptionEnum;
 import org.apache.commons.codec.binary.Base64;

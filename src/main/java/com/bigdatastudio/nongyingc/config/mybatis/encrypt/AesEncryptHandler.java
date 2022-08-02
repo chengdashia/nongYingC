@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.config.mybatis;
+package com.bigdatastudio.nongyingc.config.mybatis.encrypt;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

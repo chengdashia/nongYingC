@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.constant.enums;
+package com.bigdatastudio.nongyingc.enums;
 
 /**
  * @author 成大事

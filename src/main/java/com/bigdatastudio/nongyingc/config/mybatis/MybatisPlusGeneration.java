@@ -22,15 +22,14 @@ import java.util.List;
  */
 public class MybatisPlusGeneration {
     public static void main(String[] args) {
-        String databaseName = "nong-ying-c";
+        String databaseName = "soil_detection_system";
         String url = "jdbc:mysql://localhost:3306/"+databaseName+"?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8";
         String username = "root";
         String password = "mysql729";
 
-
         //表名集合
         List<String> tables = new ArrayList<>();
-        tables.add("");
+        tables.add("user");
 
         FastAutoGenerator.create(url, username, password)
                 //全局配置
@@ -46,7 +45,7 @@ public class MybatisPlusGeneration {
                 })
                 //包配置
                 .packageConfig(builder -> {
-                    builder.parent("com.bigdatastudio.soilsystem")     //父包名
+                    builder.parent("com.bigdatastudio.nongyingc")     //父包名
 //                            .moduleName("demo")
                             .entity("model.domain")                 //Entity 包名
                             .service("service")             //	Service 包名
