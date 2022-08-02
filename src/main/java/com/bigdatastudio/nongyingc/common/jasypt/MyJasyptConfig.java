@@ -12,15 +12,15 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class MyJasyptConfig {
-    private String key = "PEB123@321BEP";
+    private final String KEY = "PEB123@321BEP";
 
-    @Bean(name = "CodeEncryBean")
+    @Bean(name = "CodeEncryptBean")
     public StringEncryptor CodeEncryBean() {
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
 
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
 
-        config.setPassword(key);
+        config.setPassword(KEY);
         config.setAlgorithm("PBEWithMD5AndDES");
         config.setKeyObtentionIterations("1000");
         config.setPoolSize("1");

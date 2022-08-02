@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.aspect;
+package com.bigdatastudio.nongyingc.aspect.log;
 
 
 import cn.dev33.satoken.stp.StpUtil;
@@ -47,7 +47,7 @@ public class SysLogAspect {
     /**
      * 设置操作日志切入点 记录操作日志 在注解的位置切入代码
      */
-    @Pointcut("@annotation(com.bigdatastudio.nongyingc.aspect.SysLog)")
+    @Pointcut("@annotation(com.bigdatastudio.nongyingc.aspect.log.SysLog)")
     public void logPointCut() {
     }
 

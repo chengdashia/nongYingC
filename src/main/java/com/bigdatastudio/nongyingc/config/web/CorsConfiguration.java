@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.config.safe;//package com.nongXingGang.config.safe;
+package com.bigdatastudio.nongyingc.config.web;//package com.nongXingGang.config.safe;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

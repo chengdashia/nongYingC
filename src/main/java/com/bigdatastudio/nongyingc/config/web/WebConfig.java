@@ -1,4 +1,4 @@
-package com.bigdatastudio.nongyingc.config.safe;
+package com.bigdatastudio.nongyingc.config.web;
 
 import cn.dev33.satoken.interceptor.SaRouteInterceptor;
 import org.springframework.context.annotation.Configuration;
